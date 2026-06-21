@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Emote Gallery</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <input type="text" id="search" placeholder="Search emote...">
+
+    <div class="gallery">
+        {% for emote in emotes %}
+        <div class="card" onclick="showPreview('{{ emote.name }}', '{{ emote.image }}')">
+            <h3>{{ emote.name }}</h3>
+            <img src="/static/emotes/{{ emote.image }}" class="emote-img">
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Preview Modal -->
+    <div id="previewModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePreview()">&times;</span>
+            <h2 id="previewTitle"></h2>
+            <img id="previewImage">
+        </div>
+    </div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
